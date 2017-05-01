@@ -13,4 +13,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-PATH=$PATH:{{senchacmd_home_parent_directory}}
+PATH=$PATH:{{senchacmd_home_parent_directory}}/sencha/cmd

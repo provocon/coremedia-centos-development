@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-- name: Install unzip
-  yum: name=pexpect update_cache=yes
-
 - name: Extract SenchaCMD
   unarchive:
     src: "http://cdn.sencha.com/cmd/{{ senchacmd_version }}/no-jre/SenchaCmd-{{ senchacmd_version }}-linux-amd64.sh.zip"

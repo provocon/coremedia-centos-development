@@ -17,6 +17,13 @@
 - name: Upgrade all packages
   yum: name=* state=latest
   
+- name: Prepare firewall
+  shell: firewall-cmd --zone=public --add-port={{item}}/tcp --permanent
+  with_items: 
+    - 80
+    - 443
+    - 22
+
 # Java    
 - name: Install Java
   yum: name=java-1.8.0-openjdk-devel update_cache=yes

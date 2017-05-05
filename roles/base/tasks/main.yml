@@ -29,3 +29,11 @@
   yum: name=unzip update_cache=yes
 
 - include: chef.yml
+
+# Make sure mariadb is not installed
+- name: Uninstall MariaDB package
+  yum: name={{ item }} state=absent update_cache=yes
+  with_items:
+   - mariadb-server
+   - mariadb-common
+   - mariadb-config

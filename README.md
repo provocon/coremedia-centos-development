@@ -2,7 +2,7 @@
 
 `coremedia-centos-development`
 
-This playbook is intended for preparation of CI nodes are other hosts, which need 
+This playbook is intended for preparation of CI nodes and other hosts, which need 
 to be able to build [CoreMedia][coremedia] workspaces for CoreMedia CMS 9 or 
 LiveContext 3 without any other installation steps necessary.
 

@@ -14,14 +14,14 @@
 # limitations under the License.
 #
 
-- name: Install base prerequisites for CoreMedia CMS system
+- name: Install base prerequisites for CoreMedia CMS systems
   become: true  
   become_method: sudo
   hosts: coremedia
   roles:
     - base
 
-- name: Install base prerequisites for CoreMedia development system
+- name: Install base prerequisites for CoreMedia development systems
   become: true  
   become_method: sudo
   hosts: cmdev

@@ -6,6 +6,8 @@ This playbook is intended for preparation of CI nodes and other hosts, which nee
 to be able to build [CoreMedia][coremedia] workspaces for CoreMedia CMS 9 or 
 LiveContext 3 without any other installation steps necessary.
 
+Find mirrors of this repository at [gitlab][gitlab] and [github][github].
+
 
 ## Setup of the Environment
 
@@ -50,8 +52,11 @@ for hosts in role `cmdev` .
 
 ## Feedback
 
-Please use the [issues][issues] section of this repository for feedback. 
+Please use the [issues][issues] section of this repository at [github][github] 
+for feedback. 
 
+[issues]: https://github.com/provocon/coremedia-centos-development/issues
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/
 [coremedia]: http://www.coremedia.com/
-[issues]: https://github.com/provocon/coremedia-centos-development/issues
+[github]: https://github.com/provocon/coremedia-centos-development
+[gitlab]: https://gitlab.com/provocon/coremedia-centos-development

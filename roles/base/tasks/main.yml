@@ -20,6 +20,8 @@
 - name: Prepare firewall
   shell: firewall-cmd --zone=public --add-port={{item}}/tcp --permanent
   with_items: 
+    - 40180
+    - 40183
     - 80
     - 443
     - 22

@@ -20,6 +20,7 @@
 - name: Prepare firewall
   shell: firewall-cmd --zone=public --add-port={{item}}/tcp --permanent
   with_items: 
+    - 40080
     - 40180
     - 40183
     - 80

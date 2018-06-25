@@ -1,5 +1,5 @@
 #
-# Copyright 2017-2018 Martin Goellnitz.
+# Copyright 2017 Martin Goellnitz.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,25 +13,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-#- name: Upgrade all packages
-#  yum: name=* state=latest
-  
-- include: firewall.yml
-
-- include: java.yml
-
-# Unzip
-- name: Install unzip
-  package: name=unzip update_cache=yes
-
-- include: chef.yml
-
-# Make sure mariadb is not installed
-- name: Uninstall MariaDB package
-  yum: name={{ item }} state=absent update_cache=yes
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-  with_items:
-   - mariadb-server
-   - mariadb-common
-   - mariadb-config
+export JAVA_HOME=`dirname $(dirname $(readlink -f /etc/alternatives/javac))`
+PATH=$JAVA_HOME/bin:$PATH

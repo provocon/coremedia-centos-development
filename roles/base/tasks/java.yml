@@ -1,4 +1,4 @@
-#
+
 # Copyright 2017-2018 Martin Goellnitz.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,24 +14,18 @@
 # limitations under the License.
 #
 
-#- name: Upgrade all packages
-#  yum: name=* state=latest
-  
-- include: firewall.yml
+- name: Install Java on Debian/Ubuntu
+  apt: name=openjdk-8-jdk update_cache=yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- include: java.yml
+- name: Java path configuration
+  template: src=java_deb.sh dest=/etc/profile.d/java.sh
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-# Unzip
-- name: Install unzip
-  package: name=unzip update_cache=yes
-
-- include: chef.yml
-
-# Make sure mariadb is not installed
-- name: Uninstall MariaDB package
-  yum: name={{ item }} state=absent update_cache=yes
+- name: Install Java on CentOS/RedHat
+  yum: name=java-1.8.0-openjdk-devel update_cache=yes
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-  with_items:
-   - mariadb-server
-   - mariadb-common
-   - mariadb-config
+
+- name: Java path configuration
+  template: src=java_rpm.sh dest=/etc/profile.d/java.sh
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

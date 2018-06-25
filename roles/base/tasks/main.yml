@@ -28,7 +28,7 @@
 
 # Unzip
 - name: Install unzip
-  yum: name=unzip update_cache=yes
+  package: name=unzip update_cache=yes
 
 - include: chef.yml
 
